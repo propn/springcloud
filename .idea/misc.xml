@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/producer/pom.xml" />
         <option value="$PROJECT_DIR$/consumer/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkin/pom.xml" />
       </list>
     </option>
   </component>

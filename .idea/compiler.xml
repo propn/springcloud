@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="consumer" />
         <module name="gateway" />
+        <module name="zipkin" />
         <module name="eureka" />
-        <module name="producer" />
         <module name="springcloud" />
+        <module name="producer" />
+        <module name="consumer" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="eureka" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="producer" options="-parameters" />
+      <module name="zipkin" options="-parameters" />
     </option>
   </component>
 </project>
