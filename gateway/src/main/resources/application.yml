@@ -1,0 +1,42 @@
+server:
+#  开启https
+#  ssl:
+#    enabled: true
+#    key-alias: sc
+#    key-store-password: sc1234
+#    key-store: classpath:sc-keystore.p12
+#    key-store-type: PKCS12
+  port: 7070
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          # 服务名小写
+          lower-case-service-id: true
+      routes:
+        - id: spring-cloud-consumer
+          # lb代表从注册中心获取服务，且已负载均衡方式转发
+          uri: lb://spring-cloud-consumer
+          predicates:
+            - Path=/spring-cloud-consumer/**
+          # 加上StripPrefix=1，否则转发到后端服务时会带上consumer前缀
+          filters:
+            - StripPrefix=1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8760/eureka/
+
+# 资源监控spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
