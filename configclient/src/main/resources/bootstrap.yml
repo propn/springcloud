@@ -5,8 +5,16 @@ eureka:
 spring:
   application:
     name: spring-cloud-configclient
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   cloud:
     config:
+      bus:
+        trace:
+          enabled: true
       discovery:
         service-id: SPRING-CLOUD-CONFIG-SERVER
         enabled: true

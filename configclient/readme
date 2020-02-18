@@ -1,0 +1,7 @@
+启动eureka
+启动config
+启动configClient
+
+mvn clean compile package
+mvn clean compile spring-boot:run
+java -jar configclient-0.0.1-SNAPSHOT.jar --spring.profiles.active=node1

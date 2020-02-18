@@ -6,15 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="consumer" />
         <module name="gateway" />
-        <module name="config" />
         <module name="zipkin" />
         <module name="eureka" />
         <module name="springcloud" />
         <module name="producer" />
         <module name="resilience4j" />
         <module name="configclient" />
-        <module name="consumer" />
+        <module name="config" />
       </profile>
     </annotationProcessing>
   </component>
