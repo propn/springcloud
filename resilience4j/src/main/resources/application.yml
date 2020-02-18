@@ -1,0 +1,26 @@
+server:
+  port: 7070
+spring:
+  application:
+    name: spring-cloud-resilience4j
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8760/eureka/
+
+resilience4j.retry:
+  retryAspectOrder: 399
+  backends:
+    retryBackendHelloRemote:
+      maxRetryAttempts: 3
+      waitDuration: 600
+      eventConsumerBufferSize: 1
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      enableRandomizedWait: false
+      randomizedWaitFactor: 2
+      retryExceptionPredicate: com.propn.sc.resilience4j.RecordFailurePredicate
+      retryExceptions:
+        - java.io.IOException
+      ignoreExceptions:
+        - com.propn.sc.resilience4j.IgnoredException

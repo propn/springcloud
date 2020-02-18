@@ -16,6 +16,7 @@ spring:
       percentage: 1.0
   zipkin:
     base-url: http://localhost:9411
+  # 查看网关路由 http://localhost:7070/actuator/gateway/routes
   cloud:
     gateway:
       discovery:
@@ -32,18 +33,26 @@ spring:
           # 加上StripPrefix=1，否则转发到后端服务时会带上consumer前缀
           filters:
             - StripPrefix=1
-
 eureka:
   client:
     serviceUrl:
       defaultZone: http://root:root@localhost:8760/eureka/
 
-# 资源监控spring-boot-starter-actuator
+# 资源监控 http://localhost:7070/actuator/prometheus
 management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"
   endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
     health:
       show-details: always
+

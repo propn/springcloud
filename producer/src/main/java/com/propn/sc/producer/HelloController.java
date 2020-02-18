@@ -27,6 +27,11 @@ public class HelloController {
         logger.error("error level");
 
         HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.currentRequestAttributes())).getRequest();
+
+        if(true){
+            System.out.println(System.currentTimeMillis() + "###############################################################");
+            throw new RuntimeException();
+        }
         return "hello " + name + "，this messge is from host" + request.getServerName() + ":" + request.getServerPort();
     }
 

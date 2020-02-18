@@ -1,0 +1,18 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8760/eureka/
+spring:
+  application:
+    name: spring-cloud-configclient
+  cloud:
+    config:
+      discovery:
+        service-id: SPRING-CLOUD-CONFIG-SERVER
+        enabled: true
+      # 查看配置中心里的属性配置 http://configServer:port/{name}/{profile}/{lable}/
+      # http://localhost:8887/spring-cloud-configclient/default/master
+      # name 必须和spring.application.name相同
+      name: spring-cloud-configclient
+      profile: default
+      label: master

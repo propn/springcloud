@@ -1,0 +1,15 @@
+server:
+  port: 8760
+eureka:
+  instance:
+    appname: Eureka
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    registerWithEureka: false # 单点的时候设置为 false 禁止注册自身
+    fetchRegistry: false  # 单点的时候设置为 false 禁用同步
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8760/eureka/
+  server:
+    enableSelfPreservation: false #关闭自我保护模式,一个服务长时间没有发送心跳，eureka也不会将其删除。默认为true
+    evictionIntervalTimerInMs: 4000

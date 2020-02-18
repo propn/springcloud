@@ -7,20 +7,26 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gateway" />
+        <module name="config" />
         <module name="zipkin" />
         <module name="eureka" />
         <module name="springcloud" />
         <module name="producer" />
+        <module name="resilience4j" />
+        <module name="configclient" />
         <module name="consumer" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config" options="-parameters" />
+      <module name="configclient" options="-parameters" />
       <module name="consumer" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="producer" options="-parameters" />
+      <module name="resilience4j" options="-parameters" />
       <module name="zipkin" options="-parameters" />
     </option>
   </component>
