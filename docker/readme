@@ -1,0 +1,32 @@
+
+1. 安装docker，从中央仓库下载image，centos
+    docker pull centos
+
+2. 启动centos，安装JDK11,保存新镜像centos:jdk11
+    docker run -it centos
+    yum search jdk
+    yum install java-11-openjdk.x86_64
+
+    docker ps -al #查看imageId
+    docker commit -m "centos with JDK11" -a "lei.xu" {imageId} centos:jdk11
+
+3. 安装私有镜像库registry
+    docker pull registry
+
+4. 启动docker registry
+    docker run -idt -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry-server registry:latest
+
+5. 上传镜像centos:jdk11到镜像库
+    docker images #查看IMAGE ID
+    docker tag {IMAGE ID} 127.0.0.1:5000/centos:jkd11
+    docker push 127.0.0.1:5000/centos
+
+6. 查看私有镜像里面的镜像是否存在
+    http://127.0.0.1:5000/v2/_catalog
+
+
+7. 编译打包工程
+   mvn clean compile package
+   mvn dockerfile:build
+   mvn dockerfile:push
+

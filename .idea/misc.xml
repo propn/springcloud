@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenCompilerTasksManager">
+    <option name="beforeCompileTasks">
+      <set>
+        <MavenCompilerTask>
+          <option name="goal" value="com.spotify:dockerfile-maven-plugin:1.4.13:build" />
+          <option name="projectPath" value="$PROJECT_DIR$/docker/pom.xml" />
+        </MavenCompilerTask>
+      </set>
+    </option>
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -13,6 +23,7 @@
         <option value="$PROJECT_DIR$/resilience4j/pom.xml" />
         <option value="$PROJECT_DIR$/config/pom.xml" />
         <option value="$PROJECT_DIR$/configclient/pom.xml" />
+        <option value="$PROJECT_DIR$/docker/pom.xml" />
       </list>
     </option>
   </component>
